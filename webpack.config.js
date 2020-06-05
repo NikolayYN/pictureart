@@ -50,6 +50,10 @@ module.exports = {
                 {from: path.resolve(__dirname, 'src/favicon.ico'),
                     to: path.resolve(__dirname, 'dist')
                 },
+                // eslint-disable-next-line max-len
+                {from: path.resolve(__dirname, 'src/img'),
+                    to: path.resolve(__dirname, 'dist')
+                },
             ],
         }),
 
@@ -67,25 +71,42 @@ module.exports = {
     module: {
         rules: [
             {
-                test: /\.s[ac]ss$/i,
+                test: /\.css$/,
                 use: [
-                    {
-                        loader: MiniCssExtractPlugin.loader,
-                        options: {
-                            hmr: isDev,
-                            reloadAll: true
-                        }
-                    },
+                    'style-loader',
                     'css-loader',
-                    'sass-loader',
-                ],
+                ]
             },
             {
                 test: /\.js$/,
                 exclude: /node_modules/,
                 use: jsLoaders(),
 
-            }
+            },
+            {
+                test: /\.(ttf|woff|woff2|eot)$/,
+                use: ['file-loader']
+            },
+            {
+                test: /\.(png|jpg|svg|gif)$/,
+                use: {
+                    loader: 'file-loader',
+                }
+            },
+            // {
+            //     test: /\.s[ac]ss$/i,
+            //     use: [
+            //         {
+            //             loader: MiniCssExtractPlugin.loader,
+            //             options: {
+            //                 hmr: isDev,
+            //                 reloadAll: true
+            //             }
+            //         },
+            //         'css-loader',
+            //         'sass-loader',
+            //     ],
+            // },
         ],
     }
 }
