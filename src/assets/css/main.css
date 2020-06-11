@@ -59,6 +59,11 @@ h3,
 h4 {
   font-family: 'Circe Extra Bold', sans-serif;
 }
+.file_upload{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
 .success{
   display: flex;
   align-items: center;
@@ -354,6 +359,7 @@ h4 {
   position: relative;
   overflow: hidden;
   font-size: 1em;
+
   /* example */
 
   height: 4em;
