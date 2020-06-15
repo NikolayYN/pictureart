@@ -1,11 +1,10 @@
-//
-// import './css/reset.css';
-// import './css/animate.css';
-// import './css/bootstrap.css';
-// import './css/main.css';
+
 import modal from './module/modal';
 import slider from './module/slider';
 import forms from './module/forms';
+import mask from './module/maskInput';
+import validMessage from './module/messegeinput';
+import loadStyleBLocks from './module/loadStyleBLock';
 
 
 window.addEventListener('DOMContentLoaded', ()=> {
@@ -18,4 +17,7 @@ window.addEventListener('DOMContentLoaded', ()=> {
 		slider('.main-slider', '.main-slider-item',
 			0, 'vertical')
 	  forms();
+		mask('[name=phone]');
+		validMessage('[name="message"]')
+		loadStyleBLocks('.button-styles', '#styles .row')
 })

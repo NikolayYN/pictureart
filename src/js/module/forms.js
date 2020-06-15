@@ -1,3 +1,6 @@
+import {sentData} from '../server/requiers';
+
+
 const forms = () => {
 		const forms = document.querySelectorAll('form');
 		const inputs = document.querySelectorAll('input');
@@ -35,22 +38,18 @@ const forms = () => {
     </div>
 		`
 		}
-		const sentData = async (url, body) => {
-				let server = await fetch(url, {
-						method: 'POST',
-						body: body,
-				})
-				return await server.text();
-		}
+
 		const path = {
 				designer: 'assets/server.php',
 				consultant: 'assets/question.php'
 		}
 		const clearInputs = () => {
 				inputs.forEach(input => {
+				//		input.setAttribute('autocomplete','off')
 						input.value = '';
 				});
 		}
+	//	clearInputs();
 		inputImg.forEach(input => {
 				input.addEventListener('input', (e) => {
 						const nameImg = e.target.files[0].name.split('.');
@@ -79,7 +78,7 @@ const forms = () => {
 						form.closest('.popup-design') || form.classList.contains('form-calc') ? api = path.designer :
 							api = path.consultant;
 
-
+					
 						sentData(api, formData)
 							.then(res => {
 									console.log(res);
