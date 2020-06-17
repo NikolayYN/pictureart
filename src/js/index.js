@@ -1,4 +1,3 @@
-
 import modal from './module/modal';
 import slider from './module/slider';
 import forms from './module/forms';
@@ -6,20 +5,26 @@ import mask from './module/maskInput';
 import validMessage from './module/messegeinput';
 import loadStyleBLocks from './module/loadStyleBLock';
 import calc from './module/calc';
+import filter from './module/filterImg';
+import hoverArt from './module/hoverArt';
+import accordion from './module/accordion';
 
 
-window.addEventListener('DOMContentLoaded', ()=> {
-
+window.addEventListener('DOMContentLoaded', () => {
 		'use strict'
-		console.log(12345)
+		const calculateObject = {}
+		calc('#size', '#material', '#options', '.promocode', '.calc-price', calculateObject)
 		modal();
 		slider('.feedback-slider', '.feedback-slider-item',
 			0, 'horizontal', '.main-prev-btn', '.main-next-btn')
 		slider('.main-slider', '.main-slider-item',
 			0, 'vertical')
-	  forms();
 		mask('[name=phone]');
 		validMessage('[name="message"]')
 		loadStyleBLocks('.button-styles', '#styles .row')
-		calc('#size', '#material', '#options', '.promocode', '.calc-price')
+		forms(calculateObject);
+		filter()
+		hoverArt('.sizes-block')
+		accordion('.accordion-heading')
 })
+

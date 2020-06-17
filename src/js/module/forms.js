@@ -1,7 +1,7 @@
 import {sentData} from '../server/requiers';
 
 
-const forms = () => {
+const forms = (state) => {
 		const forms = document.querySelectorAll('form');
 		const inputs = document.querySelectorAll('input');
 		const inputImg = document.querySelectorAll('input[type="file"]')
@@ -45,11 +45,11 @@ const forms = () => {
 		}
 		const clearInputs = () => {
 				inputs.forEach(input => {
-				//		input.setAttribute('autocomplete','off')
+						//		input.setAttribute('autocomplete','off')
 						input.value = '';
 				});
 		}
-	//	clearInputs();
+		//	clearInputs();
 		inputImg.forEach(input => {
 				input.addEventListener('input', (e) => {
 						const nameImg = e.target.files[0].name.split('.');
@@ -77,8 +77,13 @@ const forms = () => {
 						let api;
 						form.closest('.popup-design') || form.classList.contains('form-calc') ? api = path.designer :
 							api = path.consultant;
+						console.log(form.getAttribute('data-calc'))
+						if (form.getAttribute('data-calc')) {
+								for (let key in state) {
+										formData.append(key, state[key])
+								}
+						}
 
-					
 						sentData(api, formData)
 							.then(res => {
 									console.log(res);
