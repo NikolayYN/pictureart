@@ -1065,10 +1065,12 @@ h4 {
   opacity: 1;
   overflow: visible;
   transition: all 0.3s ease-in;
-
+  margin-top: 1rem;
+  padding: 3rem 4rem;
 }
 .often-questions .accordion-block:before {
   content: '';
+  z-index: -1;
   position: absolute;
   left: 50%;
   transform: translateX(-50%);

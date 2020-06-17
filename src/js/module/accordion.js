@@ -1,24 +1,22 @@
 const accordion = (headers) => {
 		const titles = document.querySelectorAll(headers);
+	function hideALlBLocks(){
+					titles.forEach(title => {
+							title.classList.remove('active')
+							title.nextElementSibling.classList.remove('active-block');
+							title.nextElementSibling.style.maxHeight = '0px';
+					})
+	}
+		titles.forEach(title => {
+				title.addEventListener('click', function () {
+						hideALlBLocks()
 
-		function addClasses(elem){
-			titles.forEach(item =>{
-					elem.classList.add('active');
-					elem.nextElementSibling.classList.add('active-block');
-			})
-		}
-		function removeClasses(elem){
-				elem.classList.remove('active')
-				elem.nextElementSibling.classList.remove('active-block');
-		}
-		titles.forEach(item => {
-				item.classList.remove('active')
-				item.nextElementSibling.classList.remove('active-block');
-				item.addEventListener('click', function (e) {
-						if (item.classList.contains('active')){
-								removeClasses(this)
-						}else{
-								addClasses(this)
+						title.classList.add('active')
+						title.nextElementSibling.classList.add('active-block');
+						if (this.classList.contains('active')) {
+								this.nextElementSibling.style.maxHeight = this.nextElementSibling.scrollHeight + 80 + 'px';
+						} else {
+								this.nextElementSibling.style.maxHeight = '0px';
 						}
 				})
 		})
