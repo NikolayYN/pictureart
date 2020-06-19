@@ -10,7 +10,6 @@ const accordion = (headers) => {
 		titles.forEach(title => {
 				title.addEventListener('click', function () {
 						hideALlBLocks()
-
 						title.classList.add('active')
 						title.nextElementSibling.classList.add('active-block');
 						if (this.classList.contains('active')) {

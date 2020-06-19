@@ -1,4 +1,5 @@
 import {sentData} from '../server/requiers';
+import shortString from '../additionalComponents/longString';
 
 
 const forms = (state) => {
@@ -52,11 +53,11 @@ const forms = (state) => {
 		//	clearInputs();
 		inputImg.forEach(input => {
 				input.addEventListener('input', (e) => {
-						const nameImg = e.target.files[0].name.split('.');
-						const result = nameImg[0].length > 6 ? nameImg[0].slice(0, 6) + '...' :
-							nameImg[0];
-						input.previousElementSibling.textContent = result
-
+						try {
+								shortString(input)
+						} catch (e) {
+								console.log(e);
+						}
 				})
 		})
 		forms.forEach(form => {

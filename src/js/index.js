@@ -8,11 +8,15 @@ import calc from './module/calc';
 import filter from './module/filterImg';
 import hoverArt from './module/hoverArt';
 import accordion from './module/accordion';
+import burger from './module/burgerMenu';
+import smoothScroll from './module/sliderScroll';
+import dragDrop from './module/dragDrop';
 
 
 window.addEventListener('DOMContentLoaded', () => {
 		'use strict'
 		const calculateObject = {}
+		smoothScroll()
 		calc('#size', '#material', '#options', '.promocode', '.calc-price', calculateObject)
 		modal();
 		slider('.feedback-slider', '.feedback-slider-item',
@@ -26,5 +30,7 @@ window.addEventListener('DOMContentLoaded', () => {
 		filter()
 		hoverArt('.sizes-block')
 		accordion('.accordion-heading')
+		burger('.burger', '.burger-menu')
+		dragDrop()
 })
 
