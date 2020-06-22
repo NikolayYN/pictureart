@@ -8,10 +8,17 @@ const shortString = (input) => {
 		})
 
 		let a = [...arr].map((file, i) => {
-				return `${file[0].slice(0, 6)}${dots[i]}${file[1]}<br>`
+				return `${file[0].slice(0, 6)}${dots[i]}${file[1]}`
 		})
-		input.previousElementSibling.innerHTML += a.forEach(img => img)
+		const ul = document.createElement('ul')
+		for (let i = 0; i<6; i++) {
+				if(a[i]){
+						ul.innerHTML += `<li>${a[i]}</li>`
+				}
 
+		}
+
+		return ul
 
 }
 
